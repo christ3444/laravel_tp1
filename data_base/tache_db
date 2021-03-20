@@ -1,0 +1,153 @@
+-- --------------------------------------------------------
+-- Hôte :                        localhost
+-- Version du serveur:           5.7.24 - MySQL Community Server (GPL)
+-- SE du serveur:                Win64
+-- HeidiSQL Version:             10.2.0.5599
+-- --------------------------------------------------------
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET NAMES utf8 */;
+/*!50503 SET NAMES utf8mb4 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+
+
+-- Listage de la structure de la base pour tp
+CREATE DATABASE IF NOT EXISTS `tp` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_roman_ci */;
+USE `tp`;
+
+-- Listage de la structure de la table tp. failed_jobs
+CREATE TABLE IF NOT EXISTS `failed_jobs` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `connection` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `queue` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `failed_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Listage des données de la table tp.failed_jobs : ~0 rows (environ)
+/*!40000 ALTER TABLE `failed_jobs` DISABLE KEYS */;
+/*!40000 ALTER TABLE `failed_jobs` ENABLE KEYS */;
+
+-- Listage de la structure de la table tp. migrations
+CREATE TABLE IF NOT EXISTS `migrations` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `batch` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Listage des données de la table tp.migrations : ~8 rows (environ)
+/*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
+INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
+	(1, '2014_10_12_000000_create_users_table', 1),
+	(2, '2019_08_19_000000_create_failed_jobs_table', 1),
+	(15, '2014_10_12_100000_create_password_resets_table', 2),
+	(16, '2020_07_30_031900_create_taches_table', 2),
+	(17, '2020_07_30_051611_create_taches_table', 3),
+	(18, '2020_07_30_061946_update_done_field_with_default_value_to_taches_table', 4),
+	(19, '2020_08_01_023025_create_taches_table', 5),
+	(20, '2020_08_01_032934_updateaccompli_field_with_default_value_to_taches_table', 6),
+	(21, '2020_08_01_034738_update_expiration_field_with_default_value_to_taches_table', 7);
+/*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
+
+-- Listage de la structure de la table tp. password_resets
+CREATE TABLE IF NOT EXISTS `password_resets` (
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  KEY `password_resets_email_index` (`email`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Listage des données de la table tp.password_resets : ~0 rows (environ)
+/*!40000 ALTER TABLE `password_resets` DISABLE KEYS */;
+INSERT INTO `password_resets` (`email`, `token`, `created_at`) VALUES
+	('chrsit@gmail.com', '$2y$10$W8ojIHdrsiilhnbyX5ZEquuhdkqrC9EyfwUCsngl9dJwqUEIsQJh2', '2020-07-30 03:26:01');
+/*!40000 ALTER TABLE `password_resets` ENABLE KEYS */;
+
+-- Listage de la structure de la table tp. taches
+CREATE TABLE IF NOT EXISTS `taches` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `titre` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `expiration` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT 'jj/mm/aaaa',
+  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `accompli` tinyint(1) DEFAULT '0',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Listage des données de la table tp.taches : ~41 rows (environ)
+/*!40000 ALTER TABLE `taches` DISABLE KEYS */;
+INSERT INTO `taches` (`id`, `titre`, `expiration`, `description`, `accompli`, `created_at`, `updated_at`) VALUES
+	(2, 'Et corporis ipsam cupiditate.', 'Autem et voluptatem.', 'Molestias enim at odio quae nam cupiditate quas asperiores culpa quae.', 0, '2020-08-01 03:16:12', '2020-08-01 03:16:12'),
+	(3, 'Et nulla cum.', 'Ut alias repellendus.', 'Earum perspiciatis quisquam ea officia quibusdam eius.', 1, '2020-08-01 03:16:12', '2020-08-01 03:16:12'),
+	(4, 'Neque in nam.', 'Officia ullam omnis.', 'Modi hic consequatur vitae eos non porro quo magni totam et voluptatibus deserunt.', 0, '2020-08-01 03:16:12', '2020-08-01 03:16:12'),
+	(5, 'Omnis harum commodi quos.', 'Qui magni ab.', 'Praesentium fugiat voluptatem sunt veritatis illo voluptas nostrum quo et.', 0, '2020-08-01 03:16:12', '2020-08-01 03:16:12'),
+	(6, 'Totam atque autem debitis.', 'Facilis repellendus.', 'Et aut mollitia et eos consequatur laborum.', 1, '2020-08-01 03:16:12', '2020-08-01 03:16:12'),
+	(7, 'Doloribus voluptatem assumenda corporis.', 'Qui dicta et.', 'Rerum dicta suscipit suscipit nihil ea eveniet qui sapiente.', 1, '2020-08-01 03:16:12', '2020-08-01 03:16:12'),
+	(8, 'Nostrum et hic.', 'Et non.', 'Aut culpa omnis temporibus beatae earum eligendi inventore dolor commodi dignissimos itaque.', 1, '2020-08-01 03:16:12', '2020-08-01 03:16:12'),
+	(9, 'Doloribus aut ratione culpa.', 'Aut error.', 'Quia corrupti aliquid sequi qui rem est molestiae qui incidunt ipsam praesentium deserunt tenetur.', 1, '2020-08-01 03:16:12', '2020-08-01 03:16:12'),
+	(10, 'Sequi vel vitae.', 'Minima quo aspernatur.', 'Quod velit velit culpa dolorum repellat beatae ea sint voluptatem.', 1, '2020-08-01 03:16:12', '2020-08-01 03:16:12'),
+	(11, 'Quidem animi sit.', 'Sint ea.', 'Sed aut vero pariatur sequi nemo sit rerum accusantium nam velit.', 1, '2020-08-01 03:16:12', '2020-08-01 03:16:12'),
+	(12, 'Iure facilis atque explicabo quis.', 'Expedita corrupti delectus.', 'Repudiandae excepturi est optio inventore laboriosam quo.', 1, '2020-08-01 03:16:12', '2020-08-01 03:16:12'),
+	(13, 'Beatae qui.', 'Velit et consequuntur.', 'Beatae quae placeat ut laborum ipsam et aut voluptatem pariatur velit.', 1, '2020-08-01 03:16:12', '2020-08-01 03:16:12'),
+	(14, 'Eos repellat velit.', 'Est dignissimos.', 'Necessitatibus atque accusantium rem ut nisi rem ea voluptatem qui laborum sint.', 1, '2020-08-01 03:16:12', '2020-08-01 03:16:12'),
+	(15, 'Incidunt officiis architecto.', 'Quae repudiandae.', 'Unde adipisci beatae enim mollitia quae voluptas.', 1, '2020-08-01 03:16:12', '2020-08-01 03:16:12'),
+	(16, 'In animi eveniet perferendis.', 'Quia voluptatem.', 'Nisi sit maiores distinctio nihil possimus impedit molestiae tempora ipsam voluptatem saepe magnam consequatur.', 0, '2020-08-01 03:16:12', '2020-08-01 03:16:12'),
+	(17, 'Accusamus dolores et.', 'Earum est.', 'Omnis eius ullam magni non dolores velit temporibus.', 0, '2020-08-01 03:16:12', '2020-08-01 03:16:12'),
+	(18, 'Mollitia voluptatem architecto.', 'Blanditiis laborum molestiae.', 'Tenetur qui pariatur incidunt vel libero sit atque.', 0, '2020-08-01 03:16:12', '2020-08-01 03:16:12'),
+	(19, 'In officiis id.', 'Ratione repellat neque.', 'Architecto ut quidem similique eos assumenda quis quaerat nostrum.', 1, '2020-08-01 03:16:12', '2020-08-01 03:16:12'),
+	(20, 'Quia nam a.', 'Sapiente itaque.', 'Minus vel saepe sequi unde odio fuga soluta dolore inventore dolore eos.', 0, '2020-08-01 03:16:12', '2020-08-01 03:16:12'),
+	(21, 'Nulla ut.', 'Alias qui numquam.', 'Rerum deserunt eos provident omnis pariatur ea harum ut architecto facere.', 1, '2020-08-01 03:16:12', '2020-08-01 03:16:12'),
+	(22, 'Odit velit hic consequatur.', 'Quia earum provident.', 'Ipsum sed sit corporis aperiam nihil et autem eligendi fugit laboriosam iste.', 0, '2020-08-01 03:16:12', '2020-08-01 03:16:12'),
+	(23, 'Aut deleniti quis mollitia culpa.', 'Voluptatum mollitia.', 'Rerum doloremque iste corporis modi quisquam asperiores corporis facilis autem voluptas saepe rem facilis.', 0, '2020-08-01 03:16:12', '2020-08-01 03:16:12'),
+	(24, 'Earum sapiente nostrum eum.', 'Sit recusandae ut.', 'Autem eum eum suscipit dolor dolores qui.', 0, '2020-08-01 03:16:12', '2020-08-01 03:16:12'),
+	(25, 'Similique placeat aliquam consequatur.', 'Expedita ipsam ut.', 'Id tenetur quia non odio unde qui nostrum.', 1, '2020-08-01 03:16:12', '2020-08-01 03:16:12'),
+	(26, 'Sed ducimus sequi necessitatibus.', 'Laudantium vel.', 'Suscipit sit nam consequatur fugiat provident delectus dicta voluptas.', 1, '2020-08-01 03:16:12', '2020-08-01 03:16:12'),
+	(27, 'Aut ut voluptas eaque.', 'Est quia.', 'Dignissimos qui ut libero aut qui ut omnis et ratione ut.', 1, '2020-08-01 03:16:12', '2020-08-01 03:16:12'),
+	(28, 'Ducimus ab rem.', 'Tenetur nobis consequuntur.', 'Voluptas aut ut et reiciendis dignissimos occaecati illum suscipit at sequi velit officiis.', 0, '2020-08-01 03:16:12', '2020-08-01 03:16:12'),
+	(29, 'Cumque sit non saepe.', 'Sit omnis.', 'Impedit inventore eos aut architecto harum sapiente quasi dignissimos velit est quaerat quam.', 1, '2020-08-01 03:16:12', '2020-08-01 03:16:12'),
+	(30, 'Vitae vel et.', 'Repellat molestiae dolorem.', 'Aperiam distinctio at doloribus repudiandae enim aliquid veniam quod est.', 1, '2020-08-01 03:16:12', '2020-08-01 03:16:12'),
+	(31, 'Aut id rem quas nam.', 'Officiis dolorem expedita.', 'Qui voluptas alias sunt optio sunt excepturi labore suscipit perspiciatis officiis necessitatibus.', 0, '2020-08-01 03:16:12', '2020-08-01 03:16:12'),
+	(32, 'Quisquam aut at culpa.', 'Quisquam officiis.', 'Adipisci tempora non ut qui ab ipsam aperiam ipsam.', 0, '2020-08-01 03:16:13', '2020-08-01 03:16:13'),
+	(33, 'Fugit qui consequuntur.', 'Voluptatem mollitia.', 'Illo sint nihil tempora ex voluptatem et vel aut.', 0, '2020-08-01 03:16:13', '2020-08-01 03:16:13'),
+	(34, 'Qui beatae aut sit.', 'Laudantium optio consectetur.', 'Earum non dolor sint ut maiores mollitia occaecati voluptas.', 0, '2020-08-01 03:16:13', '2020-08-01 03:16:13'),
+	(35, 'Ex nobis aliquid alias.', 'Cum numquam.', 'Voluptas quisquam esse doloremque illo quam quis qui occaecati ipsum.', 0, '2020-08-01 03:16:13', '2020-08-01 03:16:13'),
+	(36, 'Sunt et cupiditate.', 'Dolores vero.', 'Accusantium eos ut ut excepturi quisquam occaecati eius maiores qui.', 1, '2020-08-01 03:16:13', '2020-08-01 03:16:13'),
+	(37, 'Incidunt qui consequatur.', 'Doloremque enim vitae.', 'Ut rerum placeat nemo pariatur voluptas et officia dolores nostrum minima officia earum.', 0, '2020-08-01 03:16:13', '2020-08-01 03:16:13'),
+	(38, 'Sed qui debitis aperiam.', 'Sed adipisci.', 'Omnis voluptas qui natus eum perferendis dolorem quisquam aliquid dolorum.', 0, '2020-08-01 03:16:13', '2020-08-01 03:16:13'),
+	(39, 'Autem velit animi porro.', 'Suscipit a ut.', 'Voluptatem non in tempore labore corrupti ab.', 1, '2020-08-01 03:16:13', '2020-08-01 03:16:13'),
+	(40, 'Ullam aut impedit voluptates.', 'Autem sunt fugit.', 'Suscipit ad omnis nam voluptas libero eum deserunt et nesciunt est officiis magnam.', 1, '2020-08-01 03:16:13', '2020-08-01 03:16:13'),
+	(41, 'php', '2020-07-08', 'tp laravel', 0, '2020-08-01 03:37:28', '2020-08-01 03:40:29'),
+	(42, 'c', NULL, '-', 0, '2020-08-01 03:52:32', '2020-08-01 03:52:32');
+/*!40000 ALTER TABLE `taches` ENABLE KEYS */;
+
+-- Listage de la structure de la table tp. users
+CREATE TABLE IF NOT EXISTS `users` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email_verified_at` timestamp NULL DEFAULT NULL,
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `users_email_unique` (`email`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Listage des données de la table tp.users : ~4 rows (environ)
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+	(1, 'christ', 'chrsit@gmail.com', NULL, '$2y$10$ey7ysioEI8aOyukUmrIHGOHsAk/J62TSHvSDKtePwn7h0S4w0Uglq', 'l3ODRuToaeESQ4l0BqFvllrBkd2H33ZWBkeW1LmM9YNWPCfvLOJPRSDhEN3b', '2020-07-29 20:55:41', '2020-07-29 20:55:41'),
+	(2, 'c', 'c@gmail.com', NULL, '$2y$10$J.RBwM92H3l5iP4yIlaw0epYzlL1Y6w2YTAVPnVlp6rqtFIhZlPEu', NULL, '2020-08-01 01:22:34', '2020-08-01 01:22:34'),
+	(3, 'b', 'b@gmail.com', NULL, '$2y$10$MEXHPJo399bJqj9vo0gIMe1MkNMsL5DIenOTCSEWv5syE/3Dlhptu', NULL, '2020-08-01 04:30:08', '2020-08-01 04:30:08'),
+	(4, 'admin', 'admin@gmail.com', NULL, '$2y$10$2RObRCgXA73.ps2yB4uKZerZkKmRx0lcdUrv4tVjIH34ReQbpykZa', NULL, '2020-08-01 05:03:21', '2020-08-01 05:03:21');
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
+
+/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
+/*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
